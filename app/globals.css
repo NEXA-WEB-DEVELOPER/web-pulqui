@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #0a1e8c;
+  --color-secondary: #f7941d;
+}
+
+@layer base {
+  body {
+    @apply text-gray-900 overflow-x-hidden;
+  }
+
+  /* Improve focus styles for accessibility */
+  a:focus,
+  button:focus,
+  input:focus,
+  select:focus {
+    @apply outline-none ring-2 ring-orange-500 ring-opacity-50;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-pulse-slower {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@font-face {
+  font-family: "Cursive";
+  src: url("https://elpulqui.com/resources/fonts/cursive.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-cursive {
+  font-family: "Cursive", cursive;
+}
+
+.rounded-4xl {
+  border-radius: 2rem;
+}
+
+.rounded-br-4xl {
+  border-bottom-right-radius: 2rem;
+}
+
+.rounded-tr-4xl {
+  border-top-right-radius: 2rem;
+}
+
+.rounded-bl-4xl {
+  border-bottom-left-radius: 2rem;
+}
+
+.rounded-tl-4xl {
+  border-top-left-radius: 2rem;
+}
+
+/* Modal animations */
+#reclamosModal,
+#contactoModal,
+#videoModal {
+  transition: transform 0.4s cubic-bezier(0, 1.5, 1, 1.5);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Nosotros section highlight effect */
+.nosotros-gallery-highlight {
+  animation: pulse 2s ease-in-out;
+  box-shadow: 0 0 0 10px rgba(247, 148, 29, 0.5);
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Animaciones adicionales */
+.hover\:scale-102:hover {
+  transform: scale(1.02);
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments - prevent overflow issues */
+@media (max-width: 768px) {
+  .rounded-4xl {
+    border-radius: 1rem;
+  }
+
+  .rounded-br-4xl {
+    border-bottom-right-radius: 1rem;
+  }
+
+  .rounded-tr-4xl {
+    border-top-right-radius: 1rem;
+  }
+
+  .rounded-bl-4xl {
+    border-bottom-left-radius: 1rem;
+  }
+
+  .rounded-tl-4xl {
+    border-top-left-radius: 1rem;
+  }
+
+  /* Fix overlapping issues on small screens */
+  .container {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Improve accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
